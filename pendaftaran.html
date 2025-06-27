@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SD Negeri Pelita Bangsa - Pendaftaran Siswa Baru</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-area">
+                <img src="images/logo.png" alt="Logo SD Negeri Pelita Bangsa" class="logo">
+                <h1>SD Negeri Pelita Bangsa</h1>
+            </div>
+            <nav class="main-nav">
+                <ul id="nav-menu">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="tentang.html">Tentang Kami</a></li>
+                    <li><a href="profileguru.html">Profil Guru</a></li>
+                    <li><a href="galery.html">Galeri</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="pendaftaran.html" class="active">Pendaftaran</a></li> </ul>
+                <button class="menu-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-padded page-header">
+            <div class="container">
+                <h2>Pendaftaran Siswa Baru</h2>
+                <p>Daftarkan putra-putri Anda ke SD Negeri Pelita Bangsa.</p>
+            </div>
+        </section>
+
+        <section id="registration-form-section" class="section-padded bg-light">
+            <div class="container">
+                <h3>Formulir Pendaftaran</h3>
+                <div class="registration-form-container">
+                    <p class="form-intro">Silakan isi formulir di bawah ini dengan data yang benar dan lengkap.</p>
+                    <form action="YOUR_FORMSPREE_OR_GETFORM_URL" method="POST">
+                        <h4>Data Calon Siswa</h4>
+                        <div class="form-group">
+                            <label for="student_name">Nama Lengkap Calon Siswa:</label>
+                            <input type="text" id="student_name" name="student_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Tanggal Lahir (YYYY-MM-DD):</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Jenis Kelamin:</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Pilih</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Alamat Lengkap:</label>
+                            <textarea id="address" name="address" required></textarea>
+                        </div>
+
+                        <h4>Data Orang Tua/Wali</h4>
+                        <div class="form-group">
+                            <label for="parent_name">Nama Lengkap Orang Tua/Wali:</label>
+                            <input type="text" id="parent_name" name="parent_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="parent_phone">Nomor Telepon Orang Tua/Wali:</label>
+                            <input type="tel" id="parent_phone" name="parent_phone" placeholder="Contoh: 081234567890" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="parent_email">Email Orang Tua/Wali:</label>
+                            <input type="email" id="parent_email" name="parent_email" required>
+                        </div>
+
+                        <h4>Informasi Tambahan</h4>
+                        <div class="form-group">
+                            <label for="notes">Catatan Tambahan (opsional):</label>
+                            <textarea id="notes" name="notes" rows="4"></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="agreement" name="agreement" required>
+                            <label for="agreement">Saya menyatakan bahwa data yang diisi adalah benar dan bersedia mengikuti prosedur pendaftaran.</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Kirim Pendaftaran">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>SD Negeri Pelita Bangsa</h3>
+                    <p>Mencetak generasi penerus bangsa yang unggul dalam ilmu pengetahuan dan berakhlak mulia.</p>
+                </div>
+                <div class="footer-section links">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="tentang.html">Tentang Kami</a></li>
+                        <li><a href="galery.html">Galeri</a></li>
+                        <li><a href="kontak.html">Kontak</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-info">
+                    <h3>Hubungi Kami</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan No. 123, Kota Harapan</p>
+                    <p><i class="fas fa-phone"></i> (021) 1234567</p>
+                    <p><i class="fas fa-envelope"></i> info@sdpelitabangsa.sch.id</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 SD Negeri Pelita Bangsa. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
