@@ -56,7 +56,6 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* flex-wrap: wrap; <-- Dihapus karena akan diatur di media query */
 }
 
 .logo-area {
@@ -365,7 +364,7 @@ h3::after { /* Garis bawah pada judul section */
     line-height: 1.7;
 }
 
-/* Gaya untuk bagian Visi Misi (tentang.html) */
+/* Gaya untuk bagian Visi Misi (about.html) */
 .vision-mission-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -401,7 +400,7 @@ h3::after { /* Garis bawah pada judul section */
     margin-bottom: 10px;
 }
 
-/* Gaya untuk Nilai-Nilai (tentang.html) */
+/* Gaya untuk Nilai-Nilai (about.html) */
 .values-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -433,7 +432,7 @@ h3::after { /* Garis bawah pada judul section */
     color: #007bff;
 }
 
-/* Gaya spesifik untuk halaman guru (profileguru.html) */
+/* Gaya spesifik untuk halaman guru (teachers.html) */
 .teacher-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -631,7 +630,7 @@ h3::after { /* Garis bawah pada judul section */
 }
 
 
-/* Gaya spesifik untuk halaman galeri (galery.html) */
+/* Gaya spesifik untuk halaman galeri (gallery.html) */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -680,7 +679,7 @@ h3::after { /* Garis bawah pada judul section */
     color: #666;
 }
 
-/* Gaya spesifik untuk halaman kontak (kontak.html) */
+/* Gaya spesifik untuk halaman kontak (contact.html) */
 .contact-info-section {
     display: flex;
     flex-wrap: wrap;
@@ -791,7 +790,7 @@ h3::after { /* Garis bawah pada judul section */
     border: 0;
 }
 
-/* Gaya spesifik untuk halaman berita (berita.html) */
+/* Gaya spesifik untuk halaman berita (news.html) */
 .news-list {
     margin-top: 40px;
 }
@@ -850,7 +849,7 @@ h3::after { /* Garis bawah pada judul section */
 }
 
 
-/* --- Responsiveness (Updated & Corrected) --- */
+/* --- Responsiveness (Updated & Corrected for Side Menu) --- */
 
 /* Aturan untuk layar yang lebih kecil dari 992px (seperti tablet portrait) */
 @media (max-width: 992px) {
@@ -873,28 +872,29 @@ h3::after { /* Garis bawah pada judul section */
         display: block; /* Tampilkan tombol toggle */
     }
 
-    /* Sembunyikan navigasi utama secara default di mobile/tablet */
-    .main-nav ul {
-        display: none; /* Sembunyikan secara default */
-        flex-direction: column;
-        position: absolute;
-        top: 100%; /* Di bawah header */
-        left: 0;
-        width: 100%;
-        background-color: #0056b3; /* Background menu saat terbuka */
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        padding: 10px 0;
-        z-index: 999;
-        border-top: 1px solid rgba(255,255,255,0.2);
-        max-height: 0; /* Untuk animasi slide */
-        overflow: hidden; /* Sembunyikan overflow saat tertutup */
-        transition: max-height 0.3s ease-out; /* Animasi buka/tutup */
+    /* KONTROL MENU NAVIGASI MOBILE */
+    .main-nav {
+        position: fixed; /* Ubah dari relative menjadi fixed agar overlay full screen */
+        top: 0;
+        right: -300px; /* Sembunyikan menu di luar layar (misal lebar 300px) */
+        width: 300px; /* Lebar menu overlay */
+        height: 100%; /* Ambil tinggi penuh layar */
+        background-color: #0056b3; /* Warna background menu saat terbuka */
+        box-shadow: -4px 0 10px rgba(0,0,0,0.3); /* Bayangan dari samping */
+        transition: right 0.3s ease-out; /* Animasi geser */
+        z-index: 1000; /* Pastikan di atas semua konten */
+        overflow-y: auto; /* Aktifkan scroll jika konten menu panjang */
     }
 
-    /* Tampilkan navigasi saat class 'active' ada */
-    .main-nav ul.active {
-        display: flex; /* Ganti dari 'none' ke 'flex' */
-        max-height: 300px; /* Tinggi yang cukup untuk semua item menu */
+    .main-nav.active {
+        right: 0; /* Geser menu masuk ke layar */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        padding: 80px 0 20px; /* Padding atas untuk memberi ruang header, bawah agar tidak terlalu mepet */
+        margin: 0; /* Hapus margin default */
+        display: flex; /* Selalu flex di sini, karena visibilitas diatur oleh right */
     }
 
     .main-nav ul li {
@@ -904,10 +904,13 @@ h3::after { /* Garis bawah pada judul section */
     }
 
     .main-nav ul li a {
-        padding: 12px 20px;
+        padding: 15px 20px; /* Lebih banyak padding untuk area klik */
         display: block;
         color: #fff;
         border-bottom: 1px solid rgba(255,255,255,0.1);
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
     }
     .main-nav ul li:last-child a {
         border-bottom: none;
@@ -915,7 +918,28 @@ h3::after { /* Garis bawah pada judul section */
     .main-nav ul li a:hover,
     .main-nav ul li a.active {
         background-color: #004085;
-        border-bottom: none; /* Hilangkan border bottom saat hover/active di mobile */
+    }
+
+    /* Tambahan: Untuk mencegah scroll body saat menu terbuka */
+    body.no-scroll {
+        overflow: hidden;
+    }
+
+    /* Overlay gelap di belakang menu saat terbuka */
+    .menu-overlay {
+        display: none; /* Sembunyikan secara default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Warna gelap transparan */
+        z-index: 999; /* Di bawah menu, di atas konten lain */
+        cursor: pointer;
+    }
+    /* Aktifkan overlay saat menu terbuka */
+    .menu-overlay.active {
+        display: block;
     }
 
     .hero h2 {
@@ -926,7 +950,7 @@ h3::after { /* Garis bawah pada judul section */
     }
 
     .footer-section h3 {
-        text-align: center; /* Kembali ke tengah untuk mobile */
+        text-align: center;
     }
     .footer-section p, .footer-section ul {
         text-align: center;
@@ -1022,7 +1046,7 @@ h3::after { /* Garis bawah pada judul section */
     }
 }
 
-/* --- Gaya Spesifik untuk Halaman Pendaftaran (pendaftaran.html) --- */
+/* --- Gaya Spesifik untuk Halaman Pendaftaran (registration.html) --- */
 .registration-form-container {
     background-color: #fff;
     padding: 40px;
@@ -1083,54 +1107,4 @@ h3::after { /* Garis bawah pada judul section */
 
 .registration-form-container .form-group select {
     appearance: none; /* Hapus gaya default select */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2C197.3L159.2%2C69.5c-3.2-3.2-8.3-3.2-11.5%2C0L5.4%2C197.3c-3.2%2C3.2-3.2%2C8.3%2C0%2C11.5l11.5%2C11.5c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l126.3-126.3l126.3%2C126.3c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l11.5-11.5C290.2%2C205.6%2C290.2%2C200.5%2C287%2C197.3z%22%2F%3E%3C%2Fsvg%3E');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 12px;
-    padding-right: 30px; /* Ruang untuk ikon panah */
-}
-
-
-.registration-form-container .form-group textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.registration-form-container .form-group input[type="submit"] {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2em;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-    width: auto;
-    display: block;
-    margin: 30px auto 0; /* Tengah tombol dan beri jarak atas */
-}
-
-.registration-form-container .form-group input[type="submit"]:hover {
-    background-color: #218838;
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: flex-start; /* Agar label sejajar dengan checkbox */
-    margin-top: 25px;
-}
-
-.checkbox-group input[type="checkbox"] {
-    width: auto; /* Biarkan checkbox ukurannya default */
-    margin-right: 10px;
-    margin-top: 4px; /* Sedikit penyesuaian vertikal */
-}
-
-.checkbox-group label {
-    font-weight: normal; /* Label checkbox tidak perlu bold */
-    display: inline; /* Agar label sejajar dengan checkbox */
-    margin-bottom: 0;
-    color: #555;
-    font-size: 0.95em;
-}
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2C197.3L159.2%2C69.5c-3.2-3.2-8.3-3.2-11.5%2C0L5.4%2C197.3c-3.2%2C3.2-3.2%2C8.3%2C0%2C11.5l11.5%2C11.5c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l126.3-126.3l126.3%2C126.3c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l11.5-11.5C290.2%2C205.6
