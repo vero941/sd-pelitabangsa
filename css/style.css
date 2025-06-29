@@ -50,6 +50,8 @@ img {
     color: #fff;
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative; /* Penting untuk z-index menu-toggle */
+    z-index: 1001; /* Pastikan header di atas menu mobile dan overlay */
 }
 
 .main-header .container {
@@ -91,7 +93,23 @@ img {
     transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
-.main-nav ul li a:hover,
+.main-nav ul li a.btn { /* Gaya khusus untuk tombol "Pendaftaran" di nav */
+    background-color: #28a745; /* Hijau */
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.main-nav ul li a.btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    border-bottom: none; /* Hapus border-bottom saat hover jika dia tombol */
+}
+
+
+.main-nav ul li a:not(.btn):hover, /* Hanya terapkan ini pada link yang BUKAN tombol */
 .main-nav ul li a.active {
     color: #e9ecef;
     border-bottom: 2px solid #e9ecef;
@@ -106,6 +124,7 @@ img {
     font-size: 1.8em;
     cursor: pointer;
     padding: 10px; /* Area klik lebih besar */
+    z-index: 1002; /* Pastikan tombol toggle di atas semuanya */
 }
 
 /* --- Hero Section --- */
@@ -432,7 +451,7 @@ h3::after { /* Garis bawah pada judul section */
     color: #007bff;
 }
 
-/* Gaya spesifik untuk halaman guru (teachers.html) */
+/* Gaya spesifik untuk halaman guru (profileguru.html) */
 .teacher-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -630,7 +649,7 @@ h3::after { /* Garis bawah pada judul section */
 }
 
 
-/* Gaya spesifik untuk halaman galeri (gallery.html) */
+/* Gaya spesifik untuk halaman galeri (galery.html) */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -679,7 +698,7 @@ h3::after { /* Garis bawah pada judul section */
     color: #666;
 }
 
-/* Gaya spesifik untuk halaman kontak (contact.html) */
+/* Gaya spesifik untuk halaman kontak (kontak.html) */
 .contact-info-section {
     display: flex;
     flex-wrap: wrap;
@@ -790,7 +809,7 @@ h3::after { /* Garis bawah pada judul section */
     border: 0;
 }
 
-/* Gaya spesifik untuk halaman berita (news.html) */
+/* Gaya spesifik untuk halaman berita (berita.html) */
 .news-list {
     margin-top: 40px;
 }
@@ -849,7 +868,114 @@ h3::after { /* Garis bawah pada judul section */
 }
 
 
-/* --- Responsiveness (Updated & Corrected for Side Menu) --- */
+/* --- Gaya Spesifik untuk Halaman Pendaftaran (pendaftaran.html) --- */
+.registration-form-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-top: 40px;
+    text-align: left;
+    max-width: 800px; /* Batasi lebar formulir */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.registration-form-container .form-intro {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.registration-form-container h4 {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+.registration-form-container h4:first-of-type {
+    margin-top: 0; /* Hapus margin atas untuk judul pertama */
+}
+
+.registration-form-container .form-group {
+    margin-bottom: 20px;
+}
+
+.registration-form-container .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.registration-form-container .form-group input[type="text"],
+.registration-form-container .form-group input[type="date"],
+.registration-form-container .form-group input[type="tel"],
+.registration-form-container .form-group input[type="email"],
+.registration-form-container .form-group select,
+.registration-form-container .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box; /* Penting untuk padding dan border */
+}
+
+.registration-form-container .form-group select {
+    appearance: none; /* Hapus gaya default select */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2C197.3L159.2%2C69.5c-3.2-3.2-8.3-3.2-11.5%2C0L5.4%2C197.3c-3.2%2C3.2-3.2%2C8.3%2C0%2C11.5l11.5%2C11.5c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l126.3-126.3l126.3%2C126.3c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l11.5-11.5C290.2%2C205.6%2C290.2%2C200.5%2C287%2C197.3z%22%2F%3E%3C%2Fsvg%3E'); /* Panah bawah kustom */
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+    padding-right: 30px; /* Ruang untuk panah kustom */
+}
+
+.registration-form-container .form-group textarea {
+    min-height: 100px;
+}
+
+.registration-form-container .checkbox-group {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.registration-form-container .checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.registration-form-container .checkbox-group label {
+    display: inline-block; /* Agar teks label sejajar dengan checkbox */
+    font-weight: normal;
+    color: #555;
+}
+
+.registration-form-container .btn-submit {
+    display: block;
+    width: auto;
+    margin: 30px auto 0;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #007bff; /* Biru */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.registration-form-container .btn-submit:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+
+/* --- Responsiveness (Updated for Side Menu - MENTARI Style) --- */
 
 /* Aturan untuk layar yang lebih kecil dari 992px (seperti tablet portrait) */
 @media (max-width: 992px) {
@@ -872,34 +998,38 @@ h3::after { /* Garis bawah pada judul section */
         display: block; /* Tampilkan tombol toggle */
     }
 
-    /* KONTROL MENU NAVIGASI MOBILE */
+    /* KONTROL MENU NAVIGASI MOBILE (Ini yang penting untuk menu samping kiri) */
     .main-nav {
         position: fixed; /* Ubah dari relative menjadi fixed agar overlay full screen */
         top: 0;
-        right: -300px; /* Sembunyikan menu di luar layar (misal lebar 300px) */
+        left: -300px; /* Sembunyikan menu di luar layar (misal lebar 300px) */
         width: 300px; /* Lebar menu overlay */
         height: 100%; /* Ambil tinggi penuh layar */
         background-color: #0056b3; /* Warna background menu saat terbuka */
-        box-shadow: -4px 0 10px rgba(0,0,0,0.3); /* Bayangan dari samping */
-        transition: right 0.3s ease-out; /* Animasi geser */
+        box-shadow: 4px 0 10px rgba(0,0,0,0.3); /* Bayangan dari samping (muncul dari kiri) */
+        transition: left 0.3s ease-out; /* Animasi geser */
         z-index: 1000; /* Pastikan di atas semua konten */
         overflow-y: auto; /* Aktifkan scroll jika konten menu panjang */
+        display: flex; /* Tambahkan ini agar item menu vertikal */
+        flex-direction: column; /* Item menu dalam kolom */
+        justify-content: flex-start; /* Mulai dari atas */
+        padding-top: 80px; /* Ruang untuk header yang tumpang tindih */
     }
 
     .main-nav.active {
-        right: 0; /* Geser menu masuk ke layar */
+        left: 0; /* Geser menu masuk ke layar */
     }
 
     .main-nav ul {
         flex-direction: column;
-        padding: 80px 0 20px; /* Padding atas untuk memberi ruang header, bawah agar tidak terlalu mepet */
+        padding: 0; /* Hapus padding ul karena sudah ada di .main-nav */
         margin: 0; /* Hapus margin default */
-        display: flex; /* Selalu flex di sini, karena visibilitas diatur oleh right */
+        width: 100%; /* Ambil lebar penuh dari .main-nav */
     }
 
     .main-nav ul li {
         width: 100%;
-        text-align: center;
+        text-align: left; /* Teks menu rata kiri seperti MENTARI */
         margin: 0; /* Hapus margin-left */
     }
 
@@ -918,7 +1048,21 @@ h3::after { /* Garis bawah pada judul section */
     .main-nav ul li a:hover,
     .main-nav ul li a.active {
         background-color: #004085;
+        border-bottom: 1px solid #004085; /* Pertahankan border bawah saat active/hover */
     }
+     .main-nav ul li a.btn { /* Pastikan tombol di dalam menu mobile juga responsif */
+        background-color: #28a745;
+        color: #fff;
+        padding: 15px 20px;
+        border-radius: 0; /* Hilangkan border-radius agar cocok dengan list */
+        width: 100%;
+        text-align: center; /* Sesuaikan atau tetap left sesuai desain akhir */
+    }
+    .main-nav ul li a.btn:hover {
+        background-color: #218838;
+        transform: none; /* Jangan geser ke atas saat hover di mobile menu */
+    }
+
 
     /* Tambahan: Untuk mencegah scroll body saat menu terbuka */
     body.no-scroll {
@@ -1045,66 +1189,3 @@ h3::after { /* Garis bawah pada judul section */
         font-size: 0.9em;
     }
 }
-
-/* --- Gaya Spesifik untuk Halaman Pendaftaran (registration.html) --- */
-.registration-form-container {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-top: 40px;
-    text-align: left;
-    max-width: 800px; /* Batasi lebar formulir */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.registration-form-container .form-intro {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1.1em;
-    color: #555;
-}
-
-.registration-form-container h4 {
-    font-size: 1.5em;
-    color: #007bff;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #e9ecef;
-    padding-bottom: 10px;
-}
-
-.registration-form-container h4:first-of-type {
-    margin-top: 0; /* Hapus margin atas untuk judul pertama */
-}
-
-.registration-form-container .form-group {
-    margin-bottom: 20px;
-}
-
-.registration-form-container .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #333;
-}
-
-.registration-form-container .form-group input[type="text"],
-.registration-form-container .form-group input[type="date"],
-.registration-form-container .form-group input[type="tel"],
-.registration-form-container .form-group input[type="email"],
-.registration-form-container .form-group select,
-.registration-form-container .form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1em;
-    box-sizing: border-box; /* Penting untuk padding dan border */
-}
-
-.registration-form-container .form-group select {
-    appearance: none; /* Hapus gaya default select */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2C197.3L159.2%2C69.5c-3.2-3.2-8.3-3.2-11.5%2C0L5.4%2C197.3c-3.2%2C3.2-3.2%2C8.3%2C0%2C11.5l11.5%2C11.5c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l126.3-126.3l126.3%2C126.3c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l11.5-11.5C290.2%2C205.6
