@@ -56,7 +56,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Untuk responsivitas */
+    /* flex-wrap: wrap; <-- Dihapus karena akan diatur di media query */
 }
 
 .logo-area {
@@ -64,13 +64,10 @@ img {
     align-items: center;
 }
 
-/* PENYESUAIAN PENTING: Ukuran Logo */
 .main-header .logo {
-    height: 60px; /* Diperbesar sedikit agar lebih jelas, bisa disesuaikan */
-    width: auto; /* Agar tidak terdistorsi jika Anda mengatur height */
+    height: 60px;
+    width: auto;
     margin-right: 15px;
-    /* Anda juga bisa mencoba 'max-height' jika ingin memastikan logo tidak terlalu tinggi */
-    /* max-height: 70px; */
 }
 
 .main-header h1 {
@@ -78,12 +75,13 @@ img {
     margin: 0;
 }
 
+/* --- Navigasi Desktop --- */
 .main-nav ul {
-    display: flex;
-}
-
-.main-nav ul li {
-    margin-left: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Untuk layout horizontal di desktop */
+    gap: 25px; /* Jarak antar item menu */
 }
 
 .main-nav ul li a {
@@ -102,18 +100,19 @@ img {
 
 /* --- Menu Toggle (untuk mobile) --- */
 .menu-toggle {
-    display: none; /* Sembunyikan secara default */
+    display: none; /* Sembunyikan tombol hamburger di desktop */
     background: none;
     border: none;
     color: #fff;
     font-size: 1.8em;
     cursor: pointer;
+    padding: 10px; /* Area klik lebih besar */
 }
 
 /* --- Hero Section --- */
 .hero {
     min-height: 500px;
-    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -402,7 +401,7 @@ h3::after { /* Garis bawah pada judul section */
     margin-bottom: 10px;
 }
 
-/* Gaya untuk Nilai-Nilai (about.html) */
+/* Gaya untuk Nilai-Nilai (tentang.html) */
 .values-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -486,6 +485,151 @@ h3::after { /* Garis bawah pada judul section */
 .teacher-card .social-icons a:hover {
     color: #28a745;
 }
+
+/* --- Gaya untuk Tombol Aksi di Kartu Guru --- */
+.card-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Jarak antar tombol */
+}
+
+.card-actions .btn {
+    padding: 8px 15px;
+    font-size: 0.85em;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-edit {
+    background-color: #ffc107; /* Kuning */
+    color: #333;
+    border: none;
+}
+.btn-edit:hover {
+    background-color: #e0a800;
+    transform: translateY(-1px);
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Merah */
+    color: #fff;
+    border: none;
+}
+.btn-delete:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+.add-button {
+    margin-bottom: 30px;
+    display: inline-flex; /* Agar ikon dan teks sejajar */
+    align-items: center;
+    gap: 8px; /* Jarak antara ikon dan teks */
+    padding: 12px 25px;
+    font-size: 1.1em;
+}
+
+/* --- Gaya untuk Modal (Popup) --- */
+.modal {
+    display: none; /* Sembunyikan secara default */
+    position: fixed; /* Tetap di posisi ketika scroll */
+    z-index: 1000; /* Letakkan di atas konten lain */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Aktifkan scroll jika konten modal terlalu panjang */
+    background-color: rgba(0,0,0,0.6); /* Latar belakang gelap transparan */
+    justify-content: center; /* Pusatkan secara horizontal */
+    align-items: center; /* Pusatkan secara vertikal */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Jarak dari atas/bawah, auto untuk tengah horizontal */
+    padding: 30px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px; /* Lebar maksimum modal */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Animasi untuk modal */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #007bff;
+    font-size: 1.8em;
+}
+
+.modal-content h3::after { /* Hapus garis bawah pada judul modal */
+    content: none;
+}
+
+.modal-content .form-group {
+    margin-bottom: 15px;
+}
+
+.modal-content .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.modal-content .form-group input[type="text"],
+.modal-content .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.modal-content .form-group textarea {
+    resize: vertical;
+}
+
+.modal-content .btn {
+    width: auto;
+    display: block;
+    margin: 25px auto 0;
+    font-size: 1.1em;
+    padding: 12px 25px;
+}
+
 
 /* Gaya spesifik untuk halaman galeri (galery.html) */
 .gallery-grid {
@@ -706,45 +850,72 @@ h3::after { /* Garis bawah pada judul section */
 }
 
 
-/* --- Responsiveness --- */
+/* --- Responsiveness (Updated & Corrected) --- */
+
+/* Aturan untuk layar yang lebih kecil dari 992px (seperti tablet portrait) */
 @media (max-width: 992px) {
     .main-header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .logo-area {
-        margin-bottom: 15px;
-    }
-    .main-nav ul {
-        flex-direction: column;
+        flex-direction: row; /* Tetap row untuk header utama */
+        justify-content: space-between; /* Logo di kiri, toggle di kanan */
         align-items: center;
+        padding: 15px 20px; /* Padding konsisten */
+    }
+
+    .main-header h1 {
+        font-size: 1.6em; /* Sedikit lebih kecil untuk tablet */
+    }
+    .main-header .logo {
+        height: 50px; /* Logo sedikit lebih kecil */
+    }
+
+    /* Tampilkan tombol toggle hamburger */
+    .menu-toggle {
+        display: block; /* Tampilkan tombol toggle */
+    }
+
+    /* Sembunyikan navigasi utama secara default di mobile/tablet */
+    .main-nav ul {
+        display: none; /* Sembunyikan secara default */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Di bawah header */
+        left: 0;
         width: 100%;
-        display: none; /* Sembunyikan menu di mobile secara default */
-        transition: max-height 0.3s ease-out; /* Animasi untuk buka/tutup menu */
-        max-height: 0;
-        overflow: hidden;
-    }
-    .main-nav ul.active {
-        display: flex; /* Tampilkan saat aktif */
-        max-height: 300px; /* Cukup tinggi untuk semua item */
-    }
-    .main-nav ul li {
-        margin: 10px 0;
-        width: 100%;
-    }
-    .main-nav ul li a {
-        display: block;
+        background-color: #0056b3; /* Background menu saat terbuka */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         padding: 10px 0;
+        z-index: 999;
+        border-top: 1px solid rgba(255,255,255,0.2);
+        max-height: 0; /* Untuk animasi slide */
+        overflow: hidden; /* Sembunyikan overflow saat tertutup */
+        transition: max-height 0.3s ease-out; /* Animasi buka/tutup */
+    }
+
+    /* Tampilkan navigasi saat class 'active' ada */
+    .main-nav ul.active {
+        display: flex; /* Ganti dari 'none' ke 'flex' */
+        max-height: 300px; /* Tinggi yang cukup untuk semua item menu */
+    }
+
+    .main-nav ul li {
+        width: 100%;
+        text-align: center;
+        margin: 0; /* Hapus margin-left */
+    }
+
+    .main-nav ul li a {
+        padding: 12px 20px;
+        display: block;
+        color: #fff;
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     .main-nav ul li:last-child a {
         border-bottom: none;
     }
-    .menu-toggle {
-        display: block; /* Tampilkan tombol toggle */
-        position: absolute;
-        right: 20px;
-        top: 25px;
+    .main-nav ul li a:hover,
+    .main-nav ul li a.active {
+        background-color: #004085;
+        border-bottom: none; /* Hilangkan border bottom saat hover/active di mobile */
     }
 
     .hero h2 {
@@ -770,6 +941,7 @@ h3::after { /* Garis bawah pada judul section */
     }
 }
 
+/* Aturan untuk layar yang lebih kecil dari 768px (seperti smartphone) */
 @media (max-width: 768px) {
     .hero {
         min-height: 350px;
@@ -798,8 +970,18 @@ h3::after { /* Garis bawah pada judul section */
     .vm-item h3 {
         font-size: 1.5em;
     }
+
+    /* Responsivitas untuk modal */
+    .modal-content {
+        margin: 10% auto;
+        padding: 20px;
+    }
+    .modal-content h3 {
+        font-size: 1.5em;
+    }
 }
 
+/* Aturan untuk layar yang lebih kecil dari 576px (smartphone kecil) */
 @media (max-width: 576px) {
     .main-header h1 {
         font-size: 1.5em;
@@ -817,7 +999,29 @@ h3::after { /* Garis bawah pada judul section */
         padding: 10px 20px;
         font-size: 0.9em;
     }
+
+    /* Responsivitas untuk modal */
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 15px;
+    }
+    .modal-content .btn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+    /* Responsivitas untuk formulir pendaftaran */
+    .registration-form-container {
+        padding: 15px;
+    }
+    .registration-form-container h4 {
+        font-size: 1.2em;
+    }
+    .checkbox-group label {
+        font-size: 0.9em;
+    }
 }
+
 /* --- Gaya Spesifik untuk Halaman Pendaftaran (pendaftaran.html) --- */
 .registration-form-container {
     background-color: #fff;
@@ -929,30 +1133,4 @@ h3::after { /* Garis bawah pada judul section */
     margin-bottom: 0;
     color: #555;
     font-size: 0.95em;
-}
-
-/* Responsivitas untuk formulir pendaftaran */
-@media (max-width: 768px) {
-    .registration-form-container {
-        padding: 25px;
-    }
-    .registration-form-container h4 {
-        font-size: 1.3em;
-    }
-    .registration-form-container .form-group input[type="submit"] {
-        padding: 12px 25px;
-        font-size: 1.1em;
-    }
-}
-
-@media (max-width: 576px) {
-    .registration-form-container {
-        padding: 15px;
-    }
-    .registration-form-container h4 {
-        font-size: 1.2em;
-    }
-    .checkbox-group label {
-        font-size: 0.9em;
-    }
 }
