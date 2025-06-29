@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+
     <header class="main-header">
         <div class="container">
             <div class="logo-area">
@@ -15,6 +16,9 @@
                 <h1>SD Negeri Pelita Bangsa</h1>
             </div>
             <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <ul id="nav-menu">
                     <li><a href="index.html" class="active">Beranda</a></li>
                     <li><a href="tentang.html">Tentang Kami</a></li>
@@ -22,14 +26,13 @@
                     <li><a href="galery.html">Galeri</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                     <li><a href="berita.html">Berita</a></li>
-                    <li><a href="pendaftaran.html">Pendaftaran</a></li>
+                    <li><a href="pendaftaran.html" class="btn btn-primary">Pendaftaran</a></li>
                 </ul>
-                <button class="menu-toggle" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
             </nav>
         </div>
     </header>
+
+    <div class="menu-overlay"></div>
 
     <main>
         <section id="hero-section" class="hero">
