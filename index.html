@@ -3,88 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SD Negeri Pelita Bangsa - Beranda</title>
+    <title>SD Negeri Pelita Bangsa</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+
     <header class="main-header">
         <div class="container">
             <div class="logo-area">
-                <img src="images/logo.png" alt="Logo SD Negeri Pelita Bangsa" class="logo">
+                <img src="images/logo.png" alt="Logo SD Pelita Bangsa" class="logo">
                 <h1>SD Negeri Pelita Bangsa</h1>
             </div>
+
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <nav class="main-nav">
-                <ul id="nav-menu">
+                <ul>
                     <li><a href="index.html" class="active">Beranda</a></li>
                     <li><a href="about.html">Tentang Kami</a></li>
-                    <li><a href="teachers.html">Profil Guru</a></li>
-                    <li><a href="gallery.html">Galeri</a></li>
-                    <li><a href="contact.html">Kontak</a></li>
-                    <li><a href="news.html">Berita</a></li>
+                    <li><a href="profileguru.html">Profil Guru</a></li>
+                    <li><a href="galery.html">Galeri</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="pendaftaran.html" class="btn btn-primary">Pendaftaran Siswa Baru</a></li>
                 </ul>
-                <button class="menu-toggle" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
             </nav>
         </div>
     </header>
 
+    <div class="menu-overlay"></div>
+
     <main>
-        <section id="hero-section" class="hero">
+        <section class="hero">
             <div class="container">
                 <h2>Selamat Datang di SD Negeri Pelita Bangsa</h2>
-                <p>Mencetak Generasi Unggul, Berkarakter, dan Berprestasi</p>
-                <a href="about.html" class="btn btn-primary">Pelajari Lebih Lanjut</a>
+                <p>Membentuk Generasi Unggul Berkarakter dan Berprestasi</p>
+                <a href="pendaftaran.html" class="btn btn-primary">Daftar Sekarang</a>
             </div>
         </section>
 
-        <section id="announcements" class="section-padded bg-light">
+        <section id="announcements" class="section-padded">
             <div class="container">
                 <h3>Pengumuman Terbaru</h3>
                 <div class="announcement-grid">
-                    <article class="announcement-item">
-                        <h4>Pendaftaran Siswa Baru Tahun Ajaran 2025/2026 Dibuka!</h4>
-                        <p>Daftarkan putra-putri Anda sekarang juga. Kuota terbatas!</p>
-                        <a href="news.html" class="read-more">Baca Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                    </article>
-                    <article class="announcement-item">
-                        <h4>Libur Nasional Hari Kemerdekaan</h4>
-                        <p>Seluruh kegiatan belajar mengajar diliburkan pada tanggal 17 Agustus.</p>
-                        <a href="news.html" class="read-more">Baca Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                    </article>
-                    <article class="announcement-item">
-                        <h4>Perayaan Hari Guru Nasional</h4>
-                        <p>Yuk, meriahkan Hari Guru Nasional dengan berbagai kegiatan seru!</p>
-                        <a href="news.html" class="read-more">Baca Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                    </article>
+                    <div class="announcement-item">
+                        <h4>Pendaftaran Siswa Baru Tahun Ajaran 2024/2025</h4>
+                        <p>Informasi lengkap mengenai jadwal, syarat, dan prosedur pendaftaran siswa baru sudah dibuka.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="announcement-item">
+                        <h4>Kegiatan Class Meeting Semester Genap</h4>
+                        <p>Akan dilaksanakan pada tanggal 15-17 Juni 2025 dengan berbagai lomba menarik.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="announcement-item">
+                        <h4>Workshop Literasi Digital untuk Orang Tua</h4>
+                        <p>Mengajak orang tua untuk memahami pentingnya literasi digital bagi anak.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="section-padded">
+        <section id="features" class="section-padded bg-light">
             <div class="container">
                 <h3>Mengapa Memilih Kami?</h3>
                 <div class="features-grid">
                     <div class="feature-item">
-                        <i class="fas fa-book-reader fa-3x"></i>
-                        <h4>Kurikulum Terkini</h4>
-                        <p>Menerapkan kurikulum yang relevan dengan perkembangan zaman.</p>
+                        <i class="fas fa-book fa-3x"></i>
+                        <h4>Kurikulum Inovatif</h4>
+                        <p>Menerapkan kurikulum terbaru yang fokus pada pengembangan potensi anak.</p>
                     </div>
                     <div class="feature-item">
-                        <i class="fas fa-chalkboard-teacher fa-3x"></i>
+                        <i class="fas fa-users fa-3x"></i>
                         <h4>Guru Berkompeten</h4>
-                        <p>Tenaga pengajar profesional dan berdedikasi tinggi.</p>
+                        <p>Didukung oleh tenaga pengajar profesional dan berpengalaman.</p>
                     </div>
                     <div class="feature-item">
-                        <i class="fas fa-lightbulb fa-3x"></i>
-                        <h4>Metode Inovatif</h4>
-                        <p>Pembelajaran interaktif dan kreatif untuk merangsang minat belajar.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-school fa-3x"></i>
+                        <i class="fas fa-chalkboard fa-3x"></i>
                         <h4>Fasilitas Lengkap</h4>
-                        <p>Lingkungan belajar yang nyaman dan fasilitas modern.</p>
+                        <p>Menyediakan sarana dan prasarana belajar yang modern dan nyaman.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-trophy fa-3x"></i>
+                        <h4>Prestasi Gemilang</h4>
+                        <p>Siswa-siswi kami meraih berbagai penghargaan di tingkat daerah dan nasional.</p>
                     </div>
                 </div>
             </div>
@@ -92,31 +98,30 @@
     </main>
 
     <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section about">
-                    <h3>SD Negeri Pelita Bangsa</h3>
-                    <p>Mencetak generasi penerus bangsa yang unggul dalam ilmu pengetahuan dan berakhlak mulia.</p>
-                </div>
-                <div class="footer-section links">
-                    <h3>Tautan Cepat</h3>
-                    <ul>
-                        <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="gallery.html">Galeri</a></li>
-                        <li><a href="contact.html">Kontak</a></li>
-                        <li><a href="#">Kebijakan Privasi</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section contact-info">
-                    <h3>Hubungi Kami</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan No. 123, Kota Harapan</p>
-                    <p><i class="fas fa-phone"></i> (021) 1234567</p>
-                    <p><i class="fas fa-envelope"></i> info@sdpelitabangsa.sch.id</p>
-                </div>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h3>Tentang SD Pelita Bangsa</h3>
+                <p>SD Negeri Pelita Bangsa berkomitmen untuk menyediakan pendidikan berkualitas yang membimbing siswa menjadi pribadi cerdas, kreatif, dan berakhlak mulia.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 SD Negeri Pelita Bangsa. by Vebronia Bikolo.</p>
+            <div class="footer-section links">
+                <h3>Tautan Cepat</h3>
+                <ul>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="profileguru.html">Profil Guru</a></li>
+                    <li><a href="galery.html">Galeri</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
             </div>
+            <div class="footer-section contact-info">
+                <h3>Hubungi Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan No. 123, Kota Harapan</p>
+                <p><i class="fas fa-phone"></i> (021) 1234567</p>
+                <p><i class="fas fa-envelope"></i> info@sdpelitabangsa.sch.id</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 SD Negeri Pelita Bangsa. All Rights Reserved.
         </div>
     </footer>
 
